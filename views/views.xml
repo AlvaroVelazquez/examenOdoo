@@ -1,0 +1,59 @@
+<odoo>
+
+    <data>
+
+
+        <!--COCHE-->
+
+        <record model="ir.actions.act_window" id="action_coche">
+            <field name="name">coche</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model='ir.ui.view' id='coche_tree_view'>
+            <field name="name">coche.tree</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree string="Coche Tree">
+                    <field name="name"/>
+                    <field name="marca"/>
+                    <field name="modelo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='coche_form_view'>
+            <field name="name">coche.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Coches">
+                        <group>
+                            <field name="name"/>
+                            <field name="marca"/>
+                            <field name="modelo"/>
+                            <field name="phone"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+
+        <!-- Top menu item -->
+
+        <menuitem name="Taller" id="menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Menu" id="menu" parent="menu_root"/>
+
+        <!-- actions -->
+
+        <menuitem name="coche" id="menu_coche" parent="menu" action="action_coche"/>
+
+    </data>
+
+</odoo>

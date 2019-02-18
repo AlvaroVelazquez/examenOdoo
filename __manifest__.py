@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "taller",
+    'name': "taller1",
 
     'summary': """
         modulo base""",
@@ -15,6 +15,6 @@
     'version': '1.0',
     'depends': ['base', 'baseModule'],
     'data': [
-        'views/views.xml',
+        'views/views.xml'
     ],
 }
