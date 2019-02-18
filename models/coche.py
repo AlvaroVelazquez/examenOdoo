@@ -11,4 +11,9 @@ class coche(models.Model):
     @api.onchange('marca')
     def do_stuff(self):
         if self.marca == 'Peugeot':
-            self.modelo = '208'
+            return {
+                'warning':{
+                    'title' : 'error',
+                    'message' : 'asdsad'
+                },
+            }
