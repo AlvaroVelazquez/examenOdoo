@@ -19,6 +19,10 @@
                     <field name="name"/>
                     <field name="marca"/>
                     <field name="modelo"/>
+                    <field name="fechaEntrada"/>
+                    <field name="fechaSalida"/>
+                    <field name="tiempo"/>
+
                 </tree>
             </field>
         </record>
@@ -30,14 +34,100 @@
             <field name="arch" type="xml">
                 <notebook position="inside">
                     <page string="Coches">
+                        <header>
+                            <button string="Generate name" type="object" name="generate_record_name" class="oe_highlight"/>
+                        </header>
                         <group>
                             <field name="name"/>
                             <field name="marca"/>
                             <field name="modelo"/>
                             <field name="phone"/>
+                            <field name="fechaEntrada"/>
+                            <field name="fechaSalida"/>
                         </group>
                     </page>
                 </notebook>
+            </field>
+        </record>
+
+        <!--TALLER-->
+
+        <record model="ir.actions.act_window" id="action_taller">
+            <field name="name">taller</field>
+            <field name="res_model">taller1.taller</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model='ir.ui.view' id='taller_tree_view'>
+            <field name="name">taller.tree</field>
+            <field name="model">taller1.taller</field>
+            <field name="arch" type="xml">
+                <tree string="Taller Tree">
+                    <field name="nombreEmpresa"/>
+                    <field name="direccion"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='taller_form_view'>
+            <field name="name">taller.form</field>
+            <field name="model">taller1.taller</field>
+            <field name="arch" type="xml">
+                <form string="Taller Form">
+                    <group>
+                        <field name="nombreEmpresa"/>
+                        <field name="direccion"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="taller_search_view">
+            <field name="name">taller.search</field>
+            <field name="model">taller1.taller</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="nombreEmpresa"/>
+                    <field name="direccion"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!--MECANICO-->
+
+        <record model="ir.actions.act_window" id="action_mecanico">
+            <field name="name">mecanico</field>
+            <field name="res_model">base.entidad</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model='ir.ui.view' id='mecanico_tree_view'>
+            <field name="name">mecanico.tree</field>
+            <field name="model">base.entidad</field>
+            <field name="arch" type="xml">
+                <tree string="Mecanico Tree">
+                    <field name="nombreEntidad"/>
+                    <field name="apellidos"/>
+                    <field name="seguro"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='mecanico_form_view'>
+            <field name="name">mecanico.form</field>
+            <field name="model">base.entidad</field>
+            <!--ref es el id de la vista en baseModule-->
+            <field name="inherit_id" ref="baseModule.entidad_form_view"/>
+            <field name="arch" type="xml">
+                <field name="nombreEntidad" position="after">
+                    <group>
+                        <field name="nombreEntidad"/>
+                        <field name="apellidos"/>
+                        <field name="seguro"/>
+                    </group>
+                </field>
             </field>
         </record>
 
@@ -53,6 +143,8 @@
         <!-- actions -->
 
         <menuitem name="coche" id="menu_coche" parent="menu" action="action_coche"/>
+        <menuitem name="taller" id="menu_taller" parent="menu" action="action_taller"/>
+        <menuitem name="mecanico" id="menu_mecanico" parent="menu" action="action_mecanico"/>
 
     </data>
 

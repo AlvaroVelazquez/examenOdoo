@@ -1,8 +1,9 @@
 from odoo import models,fields, api
 
 class mecanico(models.Model):
-    _name = 'taller1.mecanico'
-    name = fields.Char(string="name", required=True, help="Nombre del mecanico")
-    apellidos = fields.Char(string="name", required=True, help="Apellidos del mecanico")
-    pais_id = fields.Many2one("taller1.taller", string="pais")
+    #Extension
+    _inherit = 'base.entidad'
+    apellidos = fields.Char(string="apellidos", required=True, help="Apellidos del mecanico")
+    seguro = fields.Boolean(string="seguro")
+    pais_id = fields.Many2one("taller1.pais", string="pais")
     taller_id = fields.Many2one("taller1.taller", string="taller")
