@@ -11,27 +11,30 @@
         </record>
 
         <record model='ir.ui.view' id='videojuego_tree_view'>
-            <field name="name">videojuego.tree</field>
+            <field name="name">videojuego.tree</field>    
             <field name="arch" type="xml">
                 <tree string="Videojuego Tree">
                     <field name="name"/>
-                    <field name="precio"/>
-                    <field name="num_ventas"/>
-                    <field name="dinero_generado"/>
-
                 </tree>
             </field>
         </record>
 
-        <record model='ir.ui.view' id='videojuego_tree_view'>
+        <record model='ir.ui.view' id='videojuego_form_view'>
             <field name="name">videojuego.tree</field>
-            <field name="model">examen.videojuego</field>
+             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                <tree string="videojuego Tree">
-                    <field name="name"/>
-                </tree>
+                <notebook position="inside">
+                     <page string="Videojuegos">
+                        <group>
+                            <field name="name"/>
+                            <field name="precio"/>
+                            <field name="num_ventas"/>
+                            <field name="dinero_generado"/>
+                        </group>
+                    </page>
+                </notebook>
             </field>
-        </record>
+                </record>
 
         <!--SAGA-->
 
@@ -42,7 +45,6 @@
 
         <record model='ir.ui.view' id='saga_tree_view'>
             <field name="name">saga.tree</field>
-            <field name="model">examen.saga</field>
             <field name="arch" type="xml">
                 <tree string="saga Tree">
                     <field name="name"/>
