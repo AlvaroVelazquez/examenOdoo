@@ -21,7 +21,6 @@
 
         <record model='ir.ui.view' id='videojuego_form_view'>
             <field name="name">videojuego.tree</field>
-             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <notebook position="inside">
                      <page string="Videojuegos">
