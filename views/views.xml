@@ -109,8 +109,8 @@
             <field name="arch" type="xml">
                 <tree string="Mecanico Tree">
                     <field name="nombreEntidad"/>
-                    <field name="apellidos"/>
-                    <field name="seguro"/>
+                     <field name="seguro"/>
+                    <field name="taller_id"/>
                 </tree>
             </field>
         </record>
@@ -126,6 +126,8 @@
                         <field name="nombreEntidad"/>
                         <field name="apellidos"/>
                         <field name="seguro"/>
+                        <field name="pais_id"/>
+                        <field name="taller_id"/>
                     </group>
                 </field>
             </field>
