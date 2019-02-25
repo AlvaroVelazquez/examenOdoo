@@ -3,140 +3,163 @@
     <data>
 
 
-        <!--COCHE-->
+        <!--VIDEOJUEGO-->
 
-        <record model="ir.actions.act_window" id="action_coche">
-            <field name="name">coche</field>
-            <field name="res_model">res.partner</field>
+        <record model="ir.actions.act_window" id="action_videojuego">
+            <field name="name">videojuego</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <record model='ir.ui.view' id='coche_tree_view'>
-            <field name="name">coche.tree</field>
-            <field name="model">res.partner</field>
+        <record model='ir.ui.view' id='videojuego_tree_view'>
+            <field name="name">videojuego.tree</field>
             <field name="arch" type="xml">
-                <tree string="Coche Tree">
+                <tree string="Videojuego Tree">
                     <field name="name"/>
-                    <field name="marca"/>
-                    <field name="modelo"/>
-                    <field name="fechaEntrada"/>
-                    <field name="fechaSalida"/>
-                    <field name="tiempo"/>
+                    <field name="precio"/>
+                    <field name="num_ventas"/>
+                    <field name="dinero_generado"/>
 
                 </tree>
             </field>
         </record>
 
-        <record model='ir.ui.view' id='coche_form_view'>
-            <field name="name">coche.tree</field>
-            <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
+        <record model='ir.ui.view' id='videojuego_tree_view'>
+            <field name="name">videojuego.tree</field>
+            <field name="model">examen.videojuego</field>
             <field name="arch" type="xml">
-                <notebook position="inside">
-                    <page string="Coches">
-                        <header>
-                            <button string="Generate name" type="object" name="generate_record_name" class="oe_highlight"/>
-                        </header>
-                        <group>
-                            <field name="name"/>
-                            <field name="marca"/>
-                            <field name="modelo"/>
-                            <field name="phone"/>
-                            <field name="fechaEntrada"/>
-                            <field name="fechaSalida"/>
-                        </group>
-                    </page>
-                </notebook>
+                <tree string="videojuego Tree">
+                    <field name="name"/>
+                </tree>
             </field>
         </record>
 
-        <!--TALLER-->
+        <!--SAGA-->
 
-        <record model="ir.actions.act_window" id="action_taller">
-            <field name="name">taller</field>
-            <field name="res_model">taller1.taller</field>
+        <record model="ir.actions.act_window" id="action_saga">
+            <field name="name">saga</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <record model='ir.ui.view' id='taller_tree_view'>
-            <field name="name">taller.tree</field>
-            <field name="model">taller1.taller</field>
+        <record model='ir.ui.view' id='saga_tree_view'>
+            <field name="name">saga.tree</field>
+            <field name="model">examen.saga</field>
             <field name="arch" type="xml">
-                <tree string="Taller Tree">
-                    <field name="nombreEmpresa"/>
-                    <field name="direccion"/>
+                <tree string="saga Tree">
+                    <field name="name"/>
                 </tree>
             </field>
         </record>
 
-        <record model='ir.ui.view' id='taller_form_view'>
-            <field name="name">taller.form</field>
-            <field name="model">taller1.taller</field>
+        <record model='ir.ui.view' id='saga_form_view'>
+            <field name="name">saga.form</field>
+            <field name="model">examen.saga</field>
             <field name="arch" type="xml">
-                <form string="Taller Form">
+                <form string="saga Form">
                     <group>
-                        <field name="nombreEmpresa"/>
-                        <field name="direccion"/>
+                        <field name="name"/>
                     </group>
                 </form>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="taller_search_view">
-            <field name="name">taller.search</field>
-            <field name="model">taller1.taller</field>
+
+        <!--CONSOLA-->
+
+        <record model="ir.actions.act_window" id="action_consola">
+            <field name="name">consola</field>
+            <field name="res_model">examen.consola</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model='ir.ui.view' id='consola_tree_view'>
+            <field name="name">consola.tree</field>
+            <field name="model">examen.consola</field>
             <field name="arch" type="xml">
-                <search>
-                    <field name="nombreEmpresa"/>
-                    <field name="direccion"/>
-                </search>
+                <tree string="consola Tree">
+                    <field name="name"/>
+                </tree>
             </field>
         </record>
 
+        <record model='ir.ui.view' id='consola_form_view'>
+            <field name="name">consola.form</field>
+            <field name="model">examen.conosla</field>
+            <field name="arch" type="xml">
+                <group>
+                    <field name="nombreEntidad"/>
+                    <field name="apellidos"/>
+                    <field name="seguro"/>    
+                    <field name="pais_id"/>
+                    <field name="taller_id"/>
+                </group>
+            </field>
+        </record>
 
-        <!--MECANICO-->
+         <!--COMPAÑIA-->
 
-        <record model="ir.actions.act_window" id="action_mecanico">
-            <field name="name">mecanico</field>
+        <record model="ir.actions.act_window" id="action_compania">
+            <field name="name">compania</field>
             <field name="res_model">base.entidad</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <record model='ir.ui.view' id='mecanico_tree_view'>
-            <field name="name">mecanico.tree</field>
+        <record model='ir.ui.view' id='compania_tree_view'>
+            <field name="name">compania.tree</field>
             <field name="model">base.entidad</field>
             <field name="arch" type="xml">
-                <tree string="Mecanico Tree">
-                    <field name="nombreEntidad"/>
-                     <field name="seguro"/>
-                    <field name="taller_id"/>
+                <tree string="compania Tree">
+                    <field name="name"/>
                 </tree>
             </field>
         </record>
 
-        <record model='ir.ui.view' id='mecanico_form_view'>
-            <field name="name">mecanico.form</field>
+        <record model='ir.ui.view' id='compania_form_view'>
+            <field name="name">compania.form</field>
             <field name="model">base.entidad</field>
             <!--ref es el id de la vista en baseModule-->
             <field name="inherit_id" ref="baseModule.entidad_form_view"/>
             <field name="arch" type="xml">
-                <field name="nombreEntidad" position="after">
+                <group>
+                    <field name="name"/>
+                </group>
+            </field>
+        </record>
+
+        <!--GENERO-->
+
+        <record model="ir.actions.act_window" id="action_genero">
+            <field name="name">genero</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model='ir.ui.view' id='genero_tree_view'>
+            <field name="name">genero.tree</field>
+            <field name="model">taller1.genero</field>
+            <field name="arch" type="xml">
+                <tree string="genero Tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='genero_form_view'>
+            <field name="name">genero.form</field>
+            <field name="model">examen.genero</field>
+            <field name="arch" type="xml">
+                <form string="genero Form">
                     <group>
-                        <field name="nombreEntidad"/>
-                        <field name="apellidos"/>
-                        <field name="seguro"/>
-                        <field name="pais_id"/>
-                        <field name="taller_id"/>
+                        <field name="name"/>
                     </group>
-                </field>
+                </form>
             </field>
         </record>
 
 
         <!-- Top menu item -->
 
-        <menuitem name="Taller" id="menu_root"/>
+        <menuitem name="Examen" id="menu_root"/>
 
         <!-- menu categories -->
 
@@ -144,9 +167,10 @@
 
         <!-- actions -->
 
-        <menuitem name="coche" id="menu_coche" parent="menu" action="action_coche"/>
-        <menuitem name="taller" id="menu_taller" parent="menu" action="action_taller"/>
-        <menuitem name="mecanico" id="menu_mecanico" parent="menu" action="action_mecanico"/>
+        <menuitem name="videojuego" id="menu_videojuego" parent="menu" action="action_videojuego"/>
+        <menuitem name="saga" id="menu_saga" parent="menu" action="action_saga"/>
+        <menuitem name="consola" id="menu_consola" parent="menu" action="action_consola"/>
+        <menuitem name="genero" id="menu_genero" parent="menu" action="action_genero"/>
 
     </data>
 
